@@ -54,7 +54,8 @@
 }
 
 ## create animal
-    - IMPORTANT: need to disable authenticity token with this command in app/controllers/application_controller.rb $ skip_before_action :verify_authenticity_token
+    - IMPORTANT: need to disable authenticity token with this command in app/controllers/application_controller.rb 
+    - $ skip_before_action :verify_authenticity_token
 ### postman results
 #### process for postman
     - REMEMBER to use POST to create instead of GET.
@@ -126,6 +127,75 @@
     "updated_at": "2024-02-01T18:14:37.167Z"
 }
 
+## create animal sightings
+### postman results
+#### process for postman
+- POST ->  localhost:3000/sightings
+- Body -> raw -> JSON
+
+{
+    "animal_id": 5,
+    "latitude": "34.0549° N",
+    "longitude": "18.2426° W",
+    "date": "2023-05-14"
+}
+
+- Click the send button
+- Body -> Pretty -> JSON
+
+{
+    "id": 5,
+    "animal_id": 5,
+    "latitude": "34.0549° N",
+    "longitude": "18.2426° W",
+    "date": "2023-05-14",
+    "created_at": "2024-02-01T22:00:18.889Z",
+    "updated_at": "2024-02-01T22:00:18.889Z"
+}
+
+## update animal sightings
+### postman results
+#### process for postman
+- PATCH ->  localhost:3000/sightings/5
+- Body -> raw -> JSON
+
+{
+    "latitude": "34.0395° S",
+    "longitude": "18.2436° E",
+    "date": "2023-05-15"
+}
+
+- Click the send button
+- Body -> Pretty -> JSON
+
+{
+    "latitude": "34.0395° S",
+    "longitude": "18.2436° E",
+    "date": "2023-05-15",
+    "id": 5,
+    "animal_id": 5,
+    "created_at": "2024-02-01T22:00:18.889Z",
+    "updated_at": "2024-02-01T22:07:09.440Z"
+}
+
+## delete animal sighting
+### postman results
+#### process for postman
+- DELETE -> localhost:3000/animals/3
+- Click the send button
+
+- Body -> Pretty -> JSON
+- should get back item destroyed (if not check preview for errors):
+
+{
+    "id": 4,
+    "animal_id": 4,
+    "latitude": "34.0549° N",
+    "longitude": "18.2426° W",
+    "date": "2025-04-13",
+    "created_at": "2024-02-01T21:59:31.498Z",
+    "updated_at": "2024-02-01T21:59:31.498Z"
+}
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
